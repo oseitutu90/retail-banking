@@ -1,0 +1,37 @@
+# DATA SOURCE
+
+# Configurations for the database connection
+spring:
+  datasource:
+    url: "jdbc:mysql://${GCP_MYSQL_DB_HOST}:${GCP_MYSQL_DB_PORT}/demo?createDatabaseIfNotExist=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Kolkata&useSSL=false&allowPublicKeyRetrieval=true"
+    username: "${GCP_MYSQL_DB_UNAME}"
+    password: "${GCP_MYSQL_DB_PASSWD}"
+    testWhileIdle: true
+    validationQuery: "SELECT 1"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+
+  # JPA / HIBERNATE
+
+  # Hibernate native properties
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: "org.hibernate.dialect.MySQLInnoDBDialect"
+        id:
+          new_generator_mappings: false
+    hibernate:
+      ddl-auto: "update"
+
+# CHANGE SERVER PORT HERE
+
+# Uncomment below line to change the default port
+# server:
+#   port: 8080
+
+#VARIABLES
+GCP_MYSQL_DB_HOST: localhost
+GCP_MYSQL_DB_PORT: 3306
+GCP_MYSQL_DB_UNAME: root
+GCP_MYSQL_DB_PASSWD: Geforce229!
